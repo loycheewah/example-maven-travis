@@ -25,8 +25,68 @@
   <dependencies>
     <dependency>
       <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-jasper</artifactId>
-      <version>4.1.0</version>
+      <artifactId>tomcat-catalina</artifactId>
+      <version>7.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-coyote</artifactId>
+      <version>7.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase</artifactId>
+      <version>0.94.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.directwebremoting</groupId>
+      <artifactId>dwr</artifactId>
+      <version>3.0.M1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.qpid</groupId>
+      <artifactId>qpid-client</artifactId>
+      <version>6.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.brooklyn</groupId>
+      <artifactId>brooklyn-core</artifactId>
+      <version>0.9.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.qpid</groupId>
+      <artifactId>qpid-broker</artifactId>
+      <version>0.18</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>fop</artifactId>
+      <version>2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.197</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-websocket</artifactId>
+      <version>9.0.0.M1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+      <version>2.20.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-core</artifactId>
+      <version>6.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.undertow</groupId>
+      <artifactId>undertow-core</artifactId>
+      <version>1.4.0.Final</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
@@ -95,15 +155,22 @@
     </dependency>
   </dependencies>
 
-  <repository>
-    <id>com.springsource.repository.bundles.release</id>
-    <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
-    <url>http://repository.springsource.com/maven/bundles/release</url>
-</repository>
-<repository>
-    <id>com.springsource.repository.bundles.external</id>
-    <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
-    <url>http://repository.springsource.com/maven/bundles/external</url>
-</repository>
+  <build>
+  <plugins>
+    <plugin>
+      <groupId>org.sonatype.ossindex.maven</groupId>
+      <artifactId>ossindex-maven-plugin</artifactId>
+      <executions>
+        <execution>
+          <id>audit-dependencies</id>
+          <phase>validate</phase>
+          <goals>
+            <goal>audit</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  <plugins>
+</build>
 
 </project>
