@@ -1,3 +1,4 @@
+
 [![DepShield Badge](https://depshield.sonatype.org/badges/loycheewah/example-maven-travis/depshield.svg)](https://depshield.github.io)
 
 # Black Duck CoPilot Maven/Travis CI Example
